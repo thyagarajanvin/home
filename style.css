@@ -1,0 +1,359 @@
+
+.parallax 
+{
+    height: 500px; 
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-perspective: 300px;
+    perspective: 300px;
+	 font-size: 200%;
+}
+/* Styles the content in such a way that the layered effect of the parallax can be viewed */ 
+ 
+.parallax__group 
+{
+    position: relative;
+    height: 500px; 
+    height: 100vh;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+/* Preserves the 3d effect by preventing the browser to flatten the layers and is the anchor to which all of the layers are relative to. */
+ 
+.parallax__layer 
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+/* Makes sure that the layer is positioned correctly and anchored to it's corresponding layer */
+ 
+.parallax__layer--fore 
+{
+    -webkit-transform: translateZ(90px) scale(.7);
+    transform: translateZ(90px) scale(.7);
+    z-index: 1;
+}
+/* Specifying the z index and the transformation of it creates this effect. The further away from zero, the farther and slower the element moves. 
+   Since this is the fore ground, it is the closest to zero. Since the size of the text gets smaller the farther away it is,
+   the scaling has been used to neutralize that effect. */
+ 
+.parallax__layer--base 
+{
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    z-index: 4;
+}
+/* This is the base layer to which all perspectives are based upon. Hence there is no scaling on this base layer. 
+   The z index being 4 creates the effect of the scrolling being "normal" */
+ 
+.parallax__layer--back 
+{
+    -webkit-transform: translateZ(-300px) scale(2);
+    transform: translateZ(-300px) scale(2);
+    z-index: 3;
+}
+/* The translation on this layer is in the negative meaning that it will move slower than the above two. Scaling has been done to retain 
+   size of text. */
+ 
+.parallax__layer--deep 
+{
+    -webkit-transform: translateZ(-600px) scale(3);
+    transform: translateZ(-600px) scale(3);
+    z-index: 2;
+}
+/* This is the deep background layer and moves slowest since it is the highest value on the negative side.  */
+
+body, html 
+{
+    overflow: hidden;
+}
+/* Makes sure that the scrolling that is technically within another scrolling page is not seen */
+ 
+ body 
+{
+    font: 100%;
+	font-family: 'Ubuntu Condensed', sans-serif;
+}
+/* Specifies font */
+ 
+    
+.title {
+    text-align: top;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+	color: white;
+}
+/* Styles the position of the heading text */
+ 
+#group1 
+{
+    z-index: 5; 
+}
+/* Uncovers the masking of the layers */
+ 
+#group1 .parallax__layer--base 
+{
+    background: rgb(0,0,0);
+}
+/* Specifies the colour of the background */
+ 
+#group2 
+{
+	z-index: 3; 
+}
+/* Uncovers the masking of the layers */
+ 
+#group2 .parallax__layer--back 
+{
+	background: rgb(123,210,102);
+}
+/* Specifies the colour of the background */
+ 
+#group3 
+{
+    z-index: 4; 
+}
+/* Uncovers the masking of the layers */
+ 
+#group3 .parallax__layer--base 
+{
+    background: rgb(153,216,101);
+}
+/* Specifies the colour of the background */
+ 
+#group4 
+{
+	z-index: 2; 
+}
+/* Uncovers the masking of the layers */
+
+#group4 .parallax__layer--deep 
+{
+	background: rgb(0,0,0);
+}
+/* Specifies the colour of the background */
+ 
+#group5 
+{
+    z-index: 6; 
+}
+/* Uncovers the masking of the layers */
+ 
+#group5 .parallax__layer--base 
+{
+    background: rgb(214,229,100);
+}
+/* Specifies the colour of the background */
+ 
+#group6 
+{
+    z-index: 4; 
+}
+/* Uncovers the masking of the layers */
+  
+#group6 .parallax__layer--back 
+{
+    background: rgb(245,235,100);
+}
+/* Specifies the colour of the background */
+ 
+#group7 
+{
+    z-index: 5;
+}
+/* Uncovers the masking of the layers */
+ 
+#group7 .parallax__layer--base 
+{
+	background: rgb(255,241,100);
+}
+/* Specifies the colour of the background */
+
+.button
+{
+	width: 300px;
+	margin-top: 400px;
+    margin-right: 150px;
+    margin-left: 80px;
+	-webkit-transition: all 2s;
+	background-color: #e3e3e3;
+	line-height: 50px;
+	text-align: center;
+	font-weight: bold;
+	color: #JJJ;
+	border-radius: 5px;
+	box-shadow: 0px 0px 2px rgba(0,0,0,.5)
+		1px 1px 5px rgba(0,0,0,.5);
+}
+/* Styles the button as it will be viewed by the reader before hovering the cursor */
+
+.button:hover
+{
+	background: #333;
+	color: #e3e3e3;
+	border-radius: 100px;
+}
+/* Styles the button as it will appear to the reader after hovering */
+a {
+    color: black;
+	text-decoration: none;
+}
+/* Changes colour to black and gets rid of the underline that come with hyper-links */
+
+.title1
+{
+    text-align: top;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+	color: black;
+	font-size: 150%;
+}
+/* Changes the colour for one particular text*/
+
+.last
+{
+	background: white;
+	text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+	color: black;
+	font-size: 140%;
+	color: white;
+	margin: 300px;
+}
+/* Styles the very last quote at the end of the web-page */
+
+ul 
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+/*Styles the list to look like a navigation bar */
+
+li 
+{
+    float: left;
+}
+/*Positions the links in the nave bar to the right */
+
+li a 
+{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+/*Adds to the look of the list looking more like a navigation bar */
+
+p
+{
+	text-align: center;
+	margin: auto;
+	width: 1100px;
+	font-size: 70%;
+	margin-top: 400px;
+	border: 25px grey;
+	line-height: 30px;
+	text-align: center;
+	font-weight: bold;
+	background-color: black;
+	color: white;
+	border-radius: 5px;
+	box-shadow: 0px 0px 2px rgba(0,0,0,.5)
+		1px 1px 5px rgba(0,0,0,.5);
+}
+/*Styles the paragraphs and puts them inside of a block element */
+
+.glossary
+{
+	background-color: DeepSkyBlue;
+    width: 1000px;
+    border: 10px solid green;
+    padding: 25px;
+    margin: auto;
+	text-align: center;
+	font-size: 120%
+}
+/*Styles the ordered list used in the glossary to appear in a block element */
+
+.reference
+{
+	background-color: DeepSkyBlue;
+    width: 500px;
+    border: 10px solid green;
+    padding: 7px;
+    margin-right: 300px;
+	margin-top: 100px;
+	font-size: 68%;
+}
+/*Styles the ordered list used in the glossary to appear in a block element */
+
+.buttontowebpage
+{
+	width: 300px;
+	margin:auto;
+	-webkit-transition: all 2s;
+	background-color: #e3e3e3;
+	line-height: 50px;
+	text-align: center;
+	font-weight: bold;
+	color: #JJJ;
+	border-radius: 5px;
+	box-shadow: 0px 0px 2px rgba(0,0,0,.5)
+		1px 1px 5px rgba(0,0,0,.5);
+}
+/* Styles the button as it will be viewed by the reader before hovering the cursor */
+
+.buttontowebpage:hover
+{
+	background: #333;
+	color: #e3e3e3;
+	border-radius: 100px;
+}
+/* Styles the button as it will appear to the reader after hovering */
+
+.about
+{
+	text-align: center;
+	margin: auto;
+	width: 1100px;
+	font-size: 70%;
+	margin-top: 300px;
+	border: 25px grey;
+	line-height: 75px;
+	text-align: center;
+	font-weight: bold;
+	background-color: black;
+	color: white;
+	border-radius: 5px;
+	box-shadow: 0px 0px 2px rgba(0,0,0,.5)
+		1px 1px 5px rgba(0,0,0,.5);
+}
+/* Styles the text on the about page */
+
+h1
+{
+	margin-top: 100px;
+	padding: 20px;
+}
